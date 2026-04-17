@@ -89,6 +89,7 @@ body {
 /*HEADER CONTOMIZATION*/
 header {
   background-color: var(--primary-Blue12);
+  min-height: 90px;
 }
 header .head1 {
   padding: 0 5%;
@@ -150,11 +151,13 @@ header .head3 a {
 
 .section-banner {
   padding: 5% 10%;
-  height: calc(100vh - 300px);
+  min-height: calc(100vh - 90px);
   background-color: var(--primary-Blue1);
+  box-sizing: border-box;
 }
 .section-banner .banner-content {
   display: flex;
+  flex-direction: column-reverse;
 }
 .section-banner .banner-content .banner-txt-set {
 }
@@ -219,24 +222,40 @@ header .head3 a {
   height: 290px;
   transform: translateY(-50px);
 }
-/*cards*/
-.banner-cards {
-    color: var(--primary-Blue2);
+
+@media only screen and (min-width: 800px) {
+  .section-banner .banner-content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+  }
 }
-.banner-cards .banner-each-card{
-    background-color: var(--primary-Blue6);
-    border:  1px solid var(--primary-Blue5);
-    margin: 10px 20px;
-    padding: 10px 20px;
-    width: 200px;
-    border-radius: 10px;
-    color: var(--primary-Blue1);
+
+/*CARDS PARTS COSTOM*/
+.banner-cards {
+  color: var(--primary-Blue2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateY(0px);
+}
+.banner-cards .banner-each-card {
+  background-color: var(--primary-Blue6);
+  border: 1px solid var(--primary-Blue5);
+  margin: 10px 20px;
+  padding: 10px 20px;
+  width: 200px;
+  border-radius: 10px;
+  color: var(--primary-Blue1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+@media only screen and (min-width: 800px) {
+  .banner-cards {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column-reverse;
-    transform: translateY(-50px);
+    flex-direction: row;
+    transform: translateY(-90px);
+  }
 }
