@@ -1,0 +1,259 @@
+:root {
+  --primary-Blue1: #ffffff;
+  --primary-Blue2: #e6f5ff;
+  --primary-Blue3: #ccebff;
+  --primary-Blue4: #b3e2ff;
+  --primary-Blue5: #9ad8fe;
+  --primary-Blue6: #80cefe;
+  --primary-Blue7: #67c4fe;
+  --primary-Blue8: #4dbafe;
+  --primary-Blue9: #34b1fe;
+  --primary-Blue10: #1ba7fe;
+  --primary-Blue11: #019dfe;
+  --primary-Blue12: #018de4;
+  --primary-Blue13: #017ecb;
+  --primary-Blue14: #016eb2;
+  --primary-Blue15: #016bac; /*GOLD*/
+  --primary-Blue16: #015e98;
+  --primary-Blue17: #014e7f;
+  --primary-Blue18: #013f65;
+  --primary-Blue19: #002f4c;
+  --primary-Blue20: #001f33;
+  --primary-Blue21: #001019;
+  --primary-Blue22: #000000;
+
+  --complemetar1: #ffffff;
+  --complemetar2: #ffffff;
+  --complemetar3: #ffffe6;
+  --complemetar4: #ffffcc;
+  --complemetar5: #ffffb3;
+  --complemetar6: #ffff99;
+  --complemetar7: #ffff80;
+  --complemetar8: #ffff66;
+  --complemetar9: #ffff4d;
+  --complemetar10: #ffff33;
+  --complemetar11: #ffff1a;
+  --complemetar12: #ffff00;
+  --complemetar13: #e6e600;
+  --complemetar14: #cccc00;
+  --complemetar15: #b3b300;
+  --complemetar16: #999900;
+  --complemetar17: #808000;
+  --complemetar18: #666600;
+  --complemetar19: #4d4d00;
+  --complemetar20: #333300;
+  --complemetar21: #1a1a00;
+  --complemetar22: #000000;
+
+  --dark1: #ffffff;
+  --dark2: #f0f2f4;
+  --dark3: #e2e6e9;
+  --dark4: #d3d9de;
+  --dark5: #c4ccd4;
+  --dark6: #b6c0c9;
+  --dark7: #a7b3be;
+  --dark8: #98a6b3;
+  --dark9: #8a9aa8;
+  --dark10: #7b8d9d;
+  --dark11: #6c8093;
+  --dark12: #627384;
+  --dark13: #576775;
+  --dark14: #4c5a67;
+  --dark15: #414d58;
+  --dark16: #364049;
+  --dark17: #2b333b;
+  --dark18: #21262c;
+  --dark19: #161a1d;
+  --dark20: #0b0d0f;
+  --dark21: #000000;
+}
+html {
+  scroll-behavior: smooth;
+}
+/*GERAR CONTOMIZATION*/
+* {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+body {
+  margin: 0;
+  color: var(--dark15);
+}
+/*HEADER CONTOMIZATION*/
+header {
+  /*background: linear-gradient(10deg,var(--primary-Blue8)0%,var(--primary-Blue12),var(--primary-Blue13),var(--primary-Blue8)80%);
+  */
+  background-color: var(--primary-Blue12);
+  min-height: 90px;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 4px 10px 0px rgba(4, 108, 243, 0.171);
+}
+header .head1 {
+  padding: 0 5%;
+  color: var(--primary-Blue2);
+}
+header .head2 {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-Blue8);
+  padding: 10px 5%;
+}
+header .head2 .head-logo-section .logo {
+  color: #fff;
+  font-weight: 500;
+  background-color: var(--complemetar15);
+  padding: 4px 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 0px #00000021;
+}
+header .head2 .head-menu-section nav {
+}
+header .head2 .head-menu-section nav a {
+  color: var(--primary-Blue1);
+  text-decoration: none;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+header .head2 .head-menu-section nav a .menu-chevron {
+  color: var(--primary-Blue2);
+}
+header .head2 .head-menu-section nav a ul {
+  background-color: var(--primary-Blue6);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  height: 0;
+  transition: all 0.3s;
+}
+header .head2 .head-menu-section nav a:hover {
+  & ul {
+    height: 70px;
+  }
+}
+header .head2 .head-menu-section nav a ul li {
+  list-style: none;
+}
+header .head3 {
+  background-color: var(--primary-Blue7);
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 5%;
+}
+header .head3 a {
+  color: var(--primary-Blue1);
+  text-decoration: none;
+}
+/*CARDS PARTS COSTOM*/
+.banner-cards {
+  color: var(--primary-Blue2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.banner-each-card {
+  border: 1px solid var(--primary-Blue7);
+  margin: 10px 20px;
+  padding: 10px 20px;
+  width: 80%;
+  border-radius: 10px;
+  color: var(--primary-Blue1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  background: linear-gradient(
+    125deg,
+    var(--primary-Blue7),
+    var(--primary-Blue6),
+    var(--primary-Blue8)
+  );
+  box-shadow: 0 3px 6px 0px rgba(4, 108, 243, 0.219);
+}
+@media only screen and (min-width: 800px) {
+  .banner-cards {
+    display: flex;
+    flex-direction: row;
+  }
+}
+/*LOGIN BODY COSTOM*/
+.section-login {
+  padding: 5% 10%;
+}
+.section-login .section-login-content {
+    max-width: 330px;
+    padding: 20px;
+    border-radius: 15px;
+    margin: auto;
+    box-shadow: 0 3px 6px 0px rgba(4, 108, 243, 0.219);
+}
+.section-login .section-login-content .login-content-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-login .section-login-content .section-login-set form {
+  background-color: var(--primary-Blue1);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.section-login .section-login-content .section-login-set form input {
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid var(--primary-Blue5);
+  outline: 3px solid var(--primary-Blue2);
+  border-radius: 4px;
+  margin-top: 15px;
+}
+.section-login .section-login-content .section-login-set form button {
+  background-color: var(--primary-Blue8);
+  color: var(--primary-Blue1);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 5px;
+  margin-top: 20px;
+}
+/*FOOTER COSTOM*/
+footer {
+  margin-top: 100px;
+  background-color: var(--primary-Blue18);
+  background: linear-gradient(
+    125deg,
+    var(--primary-Blue18),
+    var(--primary-Blue16),
+    var(--primary-Blue18)
+  );
+}
+footer a {
+  text-decoration: none;
+  color: var(--primary-Blue3);
+}
+footer div {
+  color: var(--primary-Blue3);
+  padding: 2% 10%;
+  display: flex;
+}
+footer div ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 40px;
+}
