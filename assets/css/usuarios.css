@@ -159,155 +159,81 @@ header .head3 a {
   color: var(--primary-Blue1);
   text-decoration: none;
 }
-/*SECTION contacto COSTOM*/
-.section-contacto {
-  padding: 5% 10%;
-}
-.section-contacto-set {
-  background-color: var(--primary-Blue1);
+
+main {
   display: flex;
-  flex-wrap: wrap;
-}
-.section-contacto .section-contacto-set .section-contacto-item {
-  box-shadow: 0 3px 6px 0px rgba(59, 101, 155, 0.075);
-  border-radius: 20px;
-  padding: 4% 8%;
-  border: 1px solid var(--dark2);
-  margin-right: 20px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-.section-contacto .section-contacto-set h3 {
-  margin-top: 0;
-}
-.section-contacto .section-contacto-set .section-contacto-tel {
-  border-left: 2px solid var(--primary-Blue10);
-}
-.section-contacto .section-contacto-set .section-contacto-email {
-  border-right: 2px solid var(--primary-Blue10);
-}
-.section-contacto .section-contacto-set .section-contacto-redes {
-  border-right: 2px solid var(--primary-Blue10);
-}
-.section-contacto
-  .section-contacto-set
-  .section-contacto-redes
-  span
-  .rede-icon {
-  background-color: var(--dark2);
-  height: 20px;
-  width: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: var(--primary-Blue5);
-}
-@media only screen and (min-width:800px) {
-  .section-contacto .section-contacto-set .section-contacto-item {
-    padding: 2% 4%;
-    width: fit-content;
-  }
-}
-/*SECTION LUGAR FORM COSTOM*/
-.section-form {
-  padding: 5% 10%;
-}
-.section-form .section-form-content {
-  background-color: var(--primary-Blue2);
-  box-shadow: 0 3px 6px 0px rgba(59, 101, 155, 0.075);
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 14px;
-  justify-content: space-between;
-}
-.section-form .section-form-content .form-set {
-  background-color: var(--primary-Blue1);
-  padding: 20px;
-  border-radius: 10px;
-}
-.section-form .section-form-content .form-set form {
-  display: flex;
-  flex-direction: column;
-  min-width: fit-content;
-}
-.section-form .section-form-content .form-set form .input {
-  height: 30px;
   box-sizing: border-box;
-  border: 1px solid var(--primary-Blue5);
-  outline: 3px solid var(--primary-Blue2);
-  border-radius: 4px;
-  margin-top: 15px;
 }
-.section-form .section-form-content .form-set form textarea {
-  min-height: 80px;
-  resize: none;
-  border: 1px solid var(--primary-Blue5);
-  outline: 3px solid var(--primary-Blue2);
-  border-radius: 4px;
-  margin-top: 15px;
+/*SECTION LEFT COSTOM*/
+.section-left {
+    width: 200px;
+    height: calc(100vh - 104px);
+    padding: 10px;
+    background-color: var(--primary-Blue4);
+    box-sizing: border-box;
+    margin-right: 10px;
+    border-radius: 7px;
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
 }
-.section-form .section-form-content .form-set form .checkbox-termos {
-  background-color: var(--primary-Blue2);
-  display: flex;
-  font-size: 14px;
-  margin-top: 8px;
-  margin-bottom: 5px;
-  border-radius: 3px;
-  padding: 2px;
+.section-left .user-welcome {
+    color: var(--primary-Blue1);
+    text-align: center;
+    margin:15px 0px;
+    font-size: 20px;
+
 }
-.section-form .section-form-content .form-set form button {
-  background-color: var(--primary-Blue8);
-  color: var(--primary-Blue1);
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  padding: 5px;
+.section-left .menu-iten {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: var(--primary-Blue5);
+    padding-bottom: 10px;
 }
-@media only screen and (min-width: 800px) {
-  .section-form .section-form-content {
-    flex-direction: row;
-  }
-  .section-form .section-form-content .form-set form {
-    min-width: 320px;
-  }
+.section-left .menu-iten span {
+    color: var(--primary-Blue1);
+    font-weight: 500;
+    padding: 2px;
+    border-radius: 5px;
+    padding-left: 30px;
+    font-weight: 400;
 }
-/*SECTION LUGAR COSTOM*/
-.section-Lugar {
-  padding: 5% 10%;
+.section-left .menu-iten span i {
+    font-size: 11px;
 }
-.section-Lugar-content {
-  background-color: var(--primary-Blue2);
-  border-radius: 20px;
-  padding: 5%;
+.section-left .menu-iten span:first-child {
+    font-weight: 500;
+    padding-left: 10px;
+    background-color: var(--primary-Blue6);
+    text-transform: uppercase;
+    font-size: 14px;
 }
-.section-form .section-form-content .section-Lugar-content {
-  flex: 1;
+
+/*SECTION RIGTH COSTOM*/
+.section-rigth {
+    background-color: var(--primary-Blue1);
+    width: calc(100vw - 300px);
+    height: calc(100vh - 130px);
+    border-radius: 20px;
+    margin: 20px;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
 }
-.section-Lugar-content .section-header h1 {
-  color: var(--primary-Blue17);
-}
-.section-Lugar-content .section-header p {
-  color: var(--primary-Blue10);
-  text-transform: uppercase;
-}
-.section-Lugar-content .section-header a {
-  background-color: var(--primary-Blue5);
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  color: #fff;
-  font-weight: 500;
-}
-.section-Lugar-content iframe {
-  border: 1px dashed var(--primary-Blue5);
-  border-radius: 10px;
-  width: 90%;
+.section-rigth .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-Blue10);
+    box-sizing: border-box;
+    object-fit: cover;
+    height:100%;
+
 }
 /*FOOTER COSTOM*/
 footer {
-  margin-top: 100px;
   background-color: var(--primary-Blue18);
   background: linear-gradient(
     125deg,

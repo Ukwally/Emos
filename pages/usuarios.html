@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMOSIST - HOME</title>
-    <link rel="stylesheet" href="../assets/css/contactos.css">
+    <title>EMOSIST - USUARIO</title>
+    <link rel="stylesheet" href="../assets/css/usuarios.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -23,8 +23,8 @@
                 <nav>
                     <a href="../index.html">Home</a>
                     <a href="#quemSomos">Quem somos </a>
-                    <a href="#contacto">Consultoria</a>
-                    <a href="#">formação <span class="menu-chevron">▶</span>
+                    <a href="#consultoria">Consultoria</a>
+                    <a href="#formacoes">formação <span class="menu-chevron">▶</span>
                         <ul>
                             <li>Presencial</li>
                             <li>E-Learning</li>
@@ -38,13 +38,14 @@
                             <li>Metodologia</li>
                         </ul>
                     </a>
-                    <a href="#">Parceiros</a>
+                    <a href="../index.html#Parceiros">Parceiros</a>
+                    <a href="./pages/contactos.html">Contactos</a>
                 </nav>
             </div>
         </div>
         <div class="head3">
             <small>
-                <a href="./login.html">Acesso restrito
+                <a href="./pages/login.html">Terminar Sessão
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -61,76 +62,41 @@
         </div>
     </header>
     <main>
-        <section class="section section-contacto" id="contacto">
-            <div class="section-header">
-                <h1>Contactos</h1>
-                <p>Estamos a distancia de uma chamada</p>
+        <section class="section-left">
+
+            <div class="user-welcome">
+                <strong>Olá, Elisabeth 👋🏽 </strong>
             </div>
-            <div class="section-contacto-set">
-                <div class="section-contacto-item section-contacto-tel">
-                    <h3>Telefones:</h3>
-                    <span>
-                        +244 945434080
-                    </span>
-                </div>
-                <div class="section-contacto-item section-contacto-email">
-                    <h3>E-mails:</h3>
-                    <span>
-                        elisa.ped2@gmail.com
-                    </span>
-                </div>
-                <div class="section-contacto-item section-contacto-redes">
-                    <h3>Redes sociais:</h3>
-                    <span>
-                        <span class="rede-icon"><i class="fa fa-facebook"></i></span>
-                        <span class="rede-icon"><i class="fa fa-twitter"></i></span>
-                        <span class="rede-icon"><i class="fa fa-instagram"></i></span>
-                        <span class="rede-icon"><i class="fa fa-linkedin"></i></span>
-                    </span>
-                </div>
+
+            <div class="menu-iten">
+                <span onclick="tab('Cursos')">Cursos</span>
+                <span> <i class="fa fa-phone"></i> Online</span>
+                <span> <i class="fa fa-users"></i> Presencial</span>
+            </div>
+            <div class="menu-iten">
+                <span onclick="tab('Candidaturas')">Candidaturas</span>
+                <span> <i class="fa fa-send"></i> Enviadas</span>
+                <span> <i class="fa fa-send"></i> Candidatar-se</span>
+            </div>
+
+            <div class="menu-iten">
+                <span onclick="tab('Dados')">Dados Pessoais</span>
+                <span> <i class="fa fa-eye"></i> Ver dados</span>
+                <span> <i class="fa fa-pencil"></i> Alterar dados</span>
             </div>
         </section>
-        <!--section-- class="section section-cta">
-            <div class="section-cta-set">
-                <h1>Emosist</h1>
-                <p>Solicite agora mesmo os nossos serviços</p>
-                <a href="#" class="">Contactar</a>
+        <section class="section-rigth">
+            <div class="tab" id="tab-Cursos">
+                <h1>Cursos</h1>
             </div>
-        </!--section-->
-        <section class="section section-form">
-            <div class="section-form-content">
-                <div class="form-set">
-                    <form action="">
-                        <input class="input" type="text" placeholder="* Nome">
-                        <input class="input" type="email" placeholder="* E-mail">
-                        <input class="input" type="number" placeholder="* Telefone">
-                        <textarea class="input" placeholder="* Atua mensagem"> </textarea>
-                        <span class="checkbox-termos"><input type="checkbox"> <small>Li os <a href="#">Termos de Uso</a>
-                                e as <a href="#">Politicas de Privacidade</a> </small></span>
-                        <button type="submit">Enviar</button>
-                    </form>
-                </div>
-                <div class="section-Lugar-content">
-                    <div class="section-header">
-                        <h1>Localizacao</h1>
-                        <p>Encontre-nos pelos rastos abaixo.</p>
-                    </div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8105492085742!2d13.248638699999999!3d-8.803861999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f230859e5ccf%3A0xfcda4d37daa29f3e!2sEmosist!5e0!3m2!1spt-PT!2sao!4v1776950053079!5m2!1spt-PT!2sao"
-                        allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+            <div class="tab" id="tab-Candidaturas">
+                <h1>Candidaturas</h1>
+            </div>
+            <div class="tab" id="tab-Dasos">
+                <h1>Dasos Pessoais</h1>
             </div>
         </section>
-        <!--section- class="section section-Lugar">
-            <div class="section-Lugar-content">
-                <div class="section-header">
-                    <h1>Localizacao</h1>
-                    <p>Encontre-nos pelos rastos abaixo.</p>
-                </div>
-                <iframe src="https://google.com/maps/find=?luanda" frameborder="0"></iframe>
-            </div>
-        </section-->
+
     </main>
     <footer>
         <div>
@@ -161,6 +127,47 @@
                     <a href="#">Politicas de privacidade</a>.</span></small></div>
     </footer>
     <script src="./assets/scripts/index.js"></script>
+
+
+    <script>
+        const tabCursos = document.getElementById('tab-Cursos');
+        const tabCandidaturas = document.getElementById('tab-Candidaturas');
+        const tabDasos = document.getElementById('tab-Dasos');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab');
+
+            tabs.forEach(tab => {
+                tab.style = 'display:none';
+            });
+
+        });
+
+        function tab(params) {
+            if (params === 'Cursos') {
+                tabCursos.style = 'display:flex;';
+
+                tabCandidaturas.style = 'display:none;';
+                tabDasos.style = 'display:none;';
+            } else {
+                if (params === 'Candidaturas') {
+                    tabCandidaturas.style = 'display:flex;';
+
+                    tabCursos.style = 'display:none;';
+                    tabDasos.style = 'display:none;';
+                } else {
+                    if (params === 'Dados') {
+                        tabDasos.style = 'display:flex;';
+
+                        tabCursos.style = 'display:none;';
+                        tabCandidaturas.style = 'display:none;';
+                    }
+                }
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>

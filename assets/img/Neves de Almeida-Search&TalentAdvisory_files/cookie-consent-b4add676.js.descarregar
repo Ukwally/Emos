@@ -1,0 +1,394 @@
+/**
+ * Gestionnaire de consentement des cookies
+ */
+class CookieConsentManager {
+    constructor() {
+        this.cookieName = 'cookie_consent';
+        this.expiryDays = 365;
+        this.convertOldConsent();
+        this.consent = this.getConsent();
+        this.modal = document.getElementById('cookie-consent-modal');
+        this.banner = document.getElementById('cookie-consent-banner');
+        this.serviceScripts = {};
+        this.initialized = false;
+
+        // Si la modale de consentement n'est pas active, définir toutes les valeurs de consentement à true
+        if (!this.modal) {
+            this.consent = {
+                statistics: true,
+                marketing: true,
+                preferences: true,
+                necessary: true
+            };
+        }
+
+        // Initialiser
+        this.init();
+
+        // Marquer comme initialisé
+        this.initialized = true;
+
+        // Déclencher un événement pour signaler que le gestionnaire est prêt
+        setTimeout(() => {
+            document.dispatchEvent(new CustomEvent('cookieConsentReady'));
+
+            // Tenter d'initialiser les scripts de service si la fonction existe
+            if (window.initializeServiceScripts && typeof window.initializeServiceScripts === 'function') {
+                try {
+                    window.initializeServiceScripts();
+                } catch(e) {
+                    console.error("Erreur lors de l'appel à initializeServiceScripts:", e);
+                }
+            }
+        }, 100);
+    }
+
+    init() {
+        // Si le consentement n'existe pas, afficher directement la popin
+        if (!this.consent) {
+            this.showModal();
+        } else {
+            // Les scripts seront chargés après leur enregistrement
+            //console.log('Consent already given:', this.consent);
+        }
+
+        // Attacher les événements
+        this.attachEvents();
+    }
+
+    convertOldConsent() {
+        const oldCookieName = 'cookieconsent';
+        // Récupérer la valeur de l'ancien cookie
+        const oldConsent = document.cookie
+            .split('; ')
+            .find(row => row.startsWith(oldCookieName + '='));
+        // Convertir l'ancien cookie en nouveau format si tout est accepté pour éviter la modale
+        if (oldConsent === 'cookieconsent=234') {
+            const consent = {
+                statistics: true,
+                marketing: true,
+                preferences: true,
+                necessary: true
+            };
+            this.saveConsent(consent);
+        }
+        // Supprimer l'ancien cookie
+        document.cookie = `${oldCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+
+    attachEvents() {
+        // Événements de la bannière
+        const bannerAcceptAll = document.getElementById('cookie-consent-banner-accept-all');
+        if (bannerAcceptAll) {
+            bannerAcceptAll.addEventListener('click', () => this.acceptAll());
+        }
+
+        const bannerReject = document.getElementById('cookie-consent-banner-reject');
+        if (bannerReject) {
+            bannerReject.addEventListener('click', () => this.rejectAll());
+        }
+
+        const bannerSettings = document.getElementById('cookie-consent-banner-settings');
+        if (bannerSettings) {
+            bannerSettings.addEventListener('click', () => this.showModal());
+        }
+
+        // Événements de la modal - Vue simplifiée
+        const customizeBtn = document.getElementById('cookie-consent-customize');
+        if (customizeBtn) {
+            customizeBtn.addEventListener('click', () => this.showCustomizeView());
+        }
+
+        const acceptAllInitialBtn = document.getElementById('cookie-consent-accept-all-initial');
+        if (acceptAllInitialBtn) {
+            acceptAllInitialBtn.addEventListener('click', () => this.acceptAll());
+        }
+
+        const rejectAllInitialBtn = document.getElementById('cookie-consent-reject-all-initial');
+        if (rejectAllInitialBtn) {
+            rejectAllInitialBtn.addEventListener('click', () => this.rejectAll());
+        }
+
+        // Événements de la modal - Vue détaillée
+        const modalClose = document.getElementById('cookie-consent-close');
+        if (modalClose) {
+            modalClose.addEventListener('click', () => {
+                this.hideModal();
+                this.showBanner(); // Afficher le bandeau après la fermeture de la popin
+            });
+        }
+
+        const acceptAll = document.getElementById('cookie-consent-accept-all');
+        if (acceptAll) {
+            acceptAll.addEventListener('click', () => this.acceptAll());
+        }
+
+        const rejectAll = document.getElementById('cookie-consent-reject-all');
+        if (rejectAll) {
+            rejectAll.addEventListener('click', () => this.rejectAll());
+        }
+
+        const acceptSelected = document.getElementById('cookie-consent-accept-selected');
+        if (acceptSelected) {
+            acceptSelected.addEventListener('click', () => this.acceptSelected());
+        }
+
+        // Fermeture en cliquant en dehors de la popin
+        if (this.modal) {
+            this.modal.addEventListener('click', (e) => {
+                if (e.target === this.modal) {
+                    this.hideModal();
+                    this.showBanner(); // Afficher le bandeau après la fermeture de la popin
+                }
+            });
+        }
+    }
+
+    populateModalFromConsent() {
+        if (!this.modal) {
+            return;
+        }
+
+        const checkboxes = this.modal.querySelectorAll('.cookie-category-checkbox');
+        checkboxes.forEach(cb => {
+            const category = cb.dataset.category;
+            if (!category) {
+                return;
+            }
+
+            // If no stored consent, default: necessary true, others false
+            if (!this.consent) {
+                cb.checked = !!cb.disabled;
+                return;
+            }
+
+            // Ensure necessary is always true
+            if (cb.disabled) {
+                cb.checked = true;
+                return;
+            }
+
+            cb.checked = this.consent[category] === true;
+        });
+    }
+
+    showCustomizeView() {
+        const categories = document.getElementById('cookie-consent-categories');
+        const initialActions = document.getElementById('cookie-consent-initial-actions');
+        const customActions = document.getElementById('cookie-consent-custom-actions');
+
+        if (categories) {
+            categories.classList.remove('cookie-hidden');
+        }
+
+        if (initialActions) {
+            initialActions.classList.add('cookie-hidden');
+        }
+
+        if (customActions) {
+            customActions.classList.remove('cookie-hidden');
+        }
+        this.populateModalFromConsent();
+    }
+
+    showBanner() {
+        if (this.banner) {
+            this.banner.classList.remove('cookie-hidden');
+        }
+    }
+
+    hideBanner() {
+        if (this.banner) {
+            this.banner.classList.add('cookie-hidden');
+        }
+    }
+
+    showModal() {
+        this.resetModalState();
+        this.populateModalFromConsent();
+        this.hideBanner();
+        if (this.modal) {
+            this.modal.classList.remove('cookie-hidden');
+        }
+    }
+
+    hideModal() {
+        if (this.modal) {
+            this.modal.classList.add('cookie-hidden');
+        }
+    }
+
+    resetModalState() {
+        // Réinitialiser la modal à son état initial (catégories masquées)
+        const categories = document.getElementById('cookie-consent-categories');
+        const initialActions = document.getElementById('cookie-consent-initial-actions');
+        const customActions = document.getElementById('cookie-consent-custom-actions');
+
+        if (categories) {
+            categories.classList.add('cookie-hidden');
+        }
+
+        if (initialActions) {
+            initialActions.classList.remove('cookie-hidden');
+        }
+
+        if (customActions) {
+            customActions.classList.add('cookie-hidden');
+        }
+    }
+
+    acceptAll() {
+        const categories = document.querySelectorAll('.cookie-category-checkbox');
+        const consent = {};
+
+        categories.forEach(checkbox => {
+            const category = checkbox.dataset.category;
+            consent[category] = true;
+        });
+
+        this.saveConsent(consent);
+        this.hideModal();
+        this.hideBanner();
+        this.loadConsentedScripts();
+
+        // Déclencher un événement pour informer que le consentement a été mis à jour
+        document.dispatchEvent(new CustomEvent('cookieConsentUpdated'));
+    }
+
+    rejectAll() {
+        const categories = document.querySelectorAll('.cookie-category-checkbox');
+        const consent = {};
+
+        categories.forEach(checkbox => {
+            const category = checkbox.dataset.category;
+            // Les catégories "necessary" sont toujours acceptées
+            if (checkbox.disabled) {
+                consent[category] = true;
+            } else {
+                consent[category] = false;
+            }
+        });
+
+        this.saveConsent(consent);
+        this.hideModal();
+        this.hideBanner();
+
+        // Déclencher un événement pour informer que le consentement a été mis à jour
+        document.dispatchEvent(new CustomEvent('cookieConsentUpdated'));
+    }
+
+    acceptSelected() {
+        const categories = document.querySelectorAll('.cookie-category-checkbox');
+        const consent = {};
+
+        categories.forEach(checkbox => {
+            const category = checkbox.dataset.category;
+            consent[category] = checkbox.checked;
+        });
+
+        this.saveConsent(consent);
+        this.hideModal();
+        this.hideBanner();
+        this.loadConsentedScripts();
+
+        // Déclencher un événement pour informer que le consentement a été mis à jour
+        document.dispatchEvent(new CustomEvent('cookieConsentUpdated'));
+    }
+
+    saveConsent(consent) {
+        this.consent = consent;
+        const date = new Date();
+        date.setTime(date.getTime() + (this.expiryDays * 24 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${this.cookieName}=${JSON.stringify(consent)};${expires};path=/;SameSite=Lax`;
+    }
+
+    getConsent() {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith(this.cookieName + '='));
+
+        if (!cookieValue) {
+            return null;
+        }
+
+        try {
+            return JSON.parse(cookieValue.split('=')[1]);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    isCategoryAccepted(category) {
+        if (!this.consent) {
+            return false;
+        }
+
+        // Retourner true pour toutes les catégories si la modale de consentement n'est pas active
+        if (!this.modal) {
+            return true;
+        }
+
+        return this.consent[category] === true;
+    }
+
+    registerScript(category, service, scriptFunction) {
+        if (!this.serviceScripts[service]) {
+            this.serviceScripts[service] = {
+                category: category,
+                function: scriptFunction,
+                loaded: false
+            };
+
+            // Important: si nous avons déjà le consentement et que le gestionnaire est initialisé,
+            // vérifier immédiatement si ce script doit être chargé
+            if (this.initialized && this.consent && this.isCategoryAccepted(category)) {
+                //console.log(`Loading script for service: ${service} (category: ${category})`);
+                scriptFunction();
+                this.serviceScripts[service].loaded = true;
+            }
+        }
+    }
+
+    loadConsentedScripts() {
+        //console.log('Loading consented scripts...');
+        for (const [service, script] of Object.entries(this.serviceScripts)) {
+            if (!script.loaded && this.isCategoryAccepted(script.category)) {
+                //console.log(`Loading script for service: ${service} (category: ${script.category})`);
+                script.function();
+                script.loaded = true;
+            }
+        }
+    }
+
+    loadScript(service) {
+        if (!this.serviceScripts[service]) {
+            return false;
+        }
+
+        const script = this.serviceScripts[service];
+
+        if (script.loaded) {
+            return true;
+        }
+
+        if (this.isCategoryAccepted(script.category)) {
+            script.function();
+            script.loaded = true;
+            return true;
+        }
+
+        return false;
+    }
+}
+
+/**
+ * Initialisation du gestionnaire de consentement
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        window.cookieConsent = new CookieConsentManager();
+    } catch(e) {
+        console.error("Erreur lors de l'initialisation du gestionnaire de consentement:", e);
+    }
+});

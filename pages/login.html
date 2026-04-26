@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <div class="head1"><small>Consultoria em RH</small></div>
+        <div class="head1"><small>Emosist - consultoria em RH</small></div>
         <div class="head2">
             <div class="head-logo-section">
                 <span class="logo">
@@ -23,7 +23,7 @@
                     <a href="../index.html">Home</a>
                     <a href="#quemSomos">Quem somos </a>
                     <a href="#consultoria">Consultoria</a>
-                    <a href="#">formação <span class="menu-chevron">▶</span>
+                    <a href="../index.html#formacoes">formação <span class="menu-chevron">▶</span>
                         <ul>
                             <li>Presencial</li>
                             <li>E-Learning</li>
@@ -44,7 +44,7 @@
         </div>
         <div class="head3">
             <small>
-                <a href="#">Acesso restrito
+                <a href="../index.html">Página Inicial
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -128,7 +128,7 @@
                     <form action="">
                         <input type="email" placeholder="E-mail">
                         <input type="password" placeholder="Password">
-                        <button>Login</button>
+                        <button id="btnlogin">Login</button>
                         <span class="erro">
                             <small>Password Errada</small>
                         </span>
@@ -166,6 +166,13 @@
                     <a href="#">Politicas de privacidade</a>.</span></small></div>
     </footer>
     <script src="../assets/scripts/index.js"></script>
+    <script>
+
+        const btnlogin = document.getElementById('btnlogin');
+        btnlogin.addEventListener('click', () => {
+            window.open('usuarios.html')
+        });
+    </script>
 </body>
 
 </html>

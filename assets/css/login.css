@@ -109,6 +109,10 @@ header .head2 {
   background-color: var(--primary-Blue8);
   padding: 10px 5%;
 }
+
+header .head2 .head-logo-section {
+  display: none;
+}
 header .head2 .head-logo-section .logo {
   color: #fff;
   font-weight: 500;
@@ -159,6 +163,11 @@ header .head3 a {
   color: var(--primary-Blue1);
   text-decoration: none;
 }
+@media only screen and (min-width: 800px) {
+  header .head2 .head-logo-section {
+    display: initial;
+  }
+}
 /*CARDS PARTS COSTOM*/
 .banner-cards {
   color: var(--primary-Blue2);
@@ -195,18 +204,21 @@ header .head3 a {
 /*LOGIN BODY COSTOM*/
 .section-login {
   padding: 5% 10%;
+  height: calc(100vh - 90px);
+  box-sizing: border-box;
+  display: flex;
 }
 .section-login .section-login-content {
-    max-width: 330px;
-    padding: 20px;
-    border-radius: 15px;
-    margin: auto;
-    box-shadow: 0 3px 6px 0px rgba(4, 108, 243, 0.219);
+  width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  margin: auto;
+  box-shadow: 0 4px 16px 0px rgba(4, 108, 243, 0.13);
 }
 .section-login .section-login-content .login-content-head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .section-login .section-login-content .section-login-set form {
   background-color: var(--primary-Blue1);
@@ -231,9 +243,13 @@ header .head3 a {
   padding: 5px;
   margin-top: 20px;
 }
+@media only screen and (min-width: 800px) {
+  .section-login .section-login-content {
+    max-width: 330px;
+  }
+}
 /*FOOTER COSTOM*/
 footer {
-  margin-top: 100px;
   background-color: var(--primary-Blue18);
   background: linear-gradient(
     125deg,

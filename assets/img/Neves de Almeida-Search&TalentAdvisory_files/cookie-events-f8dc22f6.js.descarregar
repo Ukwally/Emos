@@ -1,0 +1,257 @@
+/**
+ * Gestion des événements e-commerce pour les services de tracking
+ */
+(function () {
+    // Initialiser la file d'attente d'événements
+    window.ecommerceEvents = window.ecommerceEvents || {
+        queue: [],
+        // Envoyer tous les événements en attente à tous les services consentis
+        processQueue: function () {
+            if (!window.cookieConsent) return;
+
+            this.queue.forEach(event => {
+                this.sendEvent(event.type, event.data);
+            });
+
+            // Vider la file d'attente
+            this.queue = [];
+        },
+        // Envoyer un événement à tous les services consentis
+        sendEvent: function (eventType, eventData) {
+            if (!window.cookieConsent) return;
+
+            this.sendToGoogleAnalytics(eventType, eventData);
+            this.sendToGoogleAds(eventType, eventData);
+            this.sendToBingAds(eventType, eventData);
+            this.sendToMeta(eventType, eventData);
+            this.sendToTikTok(eventType, eventData);
+            this.sendToABTasty(eventType, eventData);
+
+            // Debug pour la catégorie "statistics"
+            if (window.cookieConsent.isCategoryAccepted('statistics')) {
+                console.log(`Statistics Event - Type: ${eventType}`, eventData);
+            }
+            // Debug pour la catégorie "marketing"
+            if (window.cookieConsent.isCategoryAccepted('marketing')) {
+                console.log(`Marketing Event - Type: ${eventType}`, eventData);
+            }
+            // Debug pour la catégorie "preferences"
+            if (window.cookieConsent.isCategoryAccepted('preferences')) {
+                console.log(`Preferences Event - Type: ${eventType}`, eventData);
+            }
+        },
+        // Ajouter un événement à la file d'attente ou l'envoyer immédiatement si le consentement existe
+        addEvent: function (eventType, eventData) {
+            if (!window.cookieConsent) {
+                this.queue.push({type: eventType, data: eventData});
+                return;
+            }
+
+            this.sendEvent(eventType, eventData);
+        },
+        // Fonction pratique pour l'ajout au panier
+        addToCart: function (product) {
+            this.addEvent('add_to_cart', product);
+        },
+        // Fonction pratique pour l'achat
+        purchase: function (order) {
+            this.addEvent('purchase', order);
+        },
+        // Fonction pour Google Analytics
+        sendToGoogleAnalytics: function (eventType, eventData) {
+            if (window.cookieConsent.isCategoryAccepted('statistics') && typeof gtag === 'function') {
+                switch (eventType) {
+                    case 'add_to_cart':
+                        gtag('event', 'add_to_cart', {
+                            currency: eventData.currency || 'EUR',
+                            value: eventData.price,
+                            items: [{
+                                item_id: eventData.id,
+                                item_name: eventData.name,
+                                price: eventData.price,
+                                quantity: eventData.quantity
+                            }]
+                        });
+                        break;
+
+                    case 'purchase':
+                        gtag('event', 'purchase', {
+                            transaction_id: eventData.transaction_id,
+                            value: eventData.value,
+                            currency: eventData.currency || 'EUR',
+                            items: eventData.items.map(item => ({
+                                item_id: item.item_id,
+                                item_name: item.item_name,
+                                quantity: item.quantity
+                            }))
+                        });
+                        break;
+                }
+            }
+        },
+        // Fonction pour GAds (Google Ads)
+        sendToGoogleAds: function (eventType, eventData) {
+            if (window.cookieConsent.isCategoryAccepted('marketing') && typeof gtag === 'function') {
+                switch (eventType) {
+                    case 'purchase':
+                        gtag('event', 'conversion', {
+                            send_to: GOOGLE_ADS_CONVERSION_ID,
+                            transaction_id: eventData.transaction_id,
+                            value: eventData.value,
+                            currency: eventData.currency || 'EUR',
+                            items: eventData.items.map(item => ({
+                                item_id: item.item_id,
+                                item_name: item.item_name,
+                                quantity: item.quantity
+                            }))
+                        });
+                        break;
+                }
+            }
+        },
+        // Fonction pour Bing Ads
+        sendToBingAds: function (eventType, eventData) {
+            if (window.cookieConsent.isCategoryAccepted('marketing') && typeof uetq === 'object') {
+                switch (eventType) {
+                    case 'add_to_cart':
+                        uetq.push('event', 'AddToCart', {
+                            ecomm_prodid: eventData.id,
+                            ecomm_pagetype: 'cart',
+                            ecomm_totalvalue: eventData.price,
+                            ecomm_quantity: eventData.quantity,
+                            ecomm_name: eventData.name
+                        });
+                        break;
+                    case 'purchase':
+                        uetq.push('event', 'Purchase', {
+                            ecomm_prodid: eventData.items.map(item => item.item_id).join(', '),
+                            ecomm_pagetype: 'purchase',
+                            ecomm_totalvalue: eventData.value,
+                            currency: eventData.currency || 'EUR',
+                        });
+                        break;
+                }
+            }
+        },
+        // Fonction pour Meta (Facebook Pixel)
+        sendToMeta: function (eventType, eventData) {
+            if (window.cookieConsent.isCategoryAccepted('marketing') && typeof fbq === 'function') {
+                switch (eventType) {
+                    case 'add_to_cart':
+                        fbq('track', 'AddToCart', {
+                            content_ids: [eventData.id],
+                            content_name: eventData.name,
+                            value: eventData.price,
+                            currency: eventData.currency || 'EUR',
+                            content_type: 'product',
+                            contents: [{
+                                id: eventData.id,
+                                quantity: eventData.quantity
+                            }]
+                        });
+                        break;
+                    case 'purchase':
+                        fbq('track', 'Purchase', {
+                            value: eventData.value,
+                            currency: eventData.currency || 'EUR',
+                            content_ids: eventData.items.map(item => item.item_id),
+                            content_type: 'product',
+                            content_name: eventData.items.map(item => item.item_name).join(', '),
+                            num_items: eventData.items.length,
+                            transaction_id: eventData.transaction_id
+                        });
+                        break;
+                }
+            }
+        },
+        // Fonction pour TikTok Pixel
+        sendToTikTok: function (eventType, eventData) {
+            if (window.cookieConsent.isCategoryAccepted('marketing') && typeof ttq === 'object') {
+                switch (eventType) {
+                    case 'add_to_cart':
+                        ttq.track('AddToCart', {
+                            contents: [{
+                                content_id: eventData.id,
+                                content_type: 'product',
+                                content_name: eventData.name,
+                                quantity: eventData.quantity,
+                                price: eventData.price,
+                            }],
+                            currency: eventData.currency || 'EUR',
+                            value: eventData.price,
+                            content_type: 'product',
+                        });
+                        break;
+
+                    case 'purchase':
+                        ttq.track('CompletePayment', {
+                            contents: eventData.items.map(item => ({
+                                content_id: item.item_id,
+                                content_type: 'product',
+                                content_name: item.item_name,
+                                quantity: item.quantity,
+                                price: item.price,
+                            })),
+                            currency: eventData.currency || 'EUR',
+                            value: eventData.value,
+                            content_type: 'product',
+                            num_items: eventData.items.length,
+                            transaction_id: eventData.transaction_id,
+                        });
+                        break;
+                }
+            }
+        },
+        // Fonction pour AB Tasty
+        sendToABTasty: function (eventType, eventData) {
+            if (window.cookieConsent.isCategoryAccepted('marketing') && typeof AB_TASTY_ID !== 'undefined' && AB_TASTY_ID) {
+                switch (eventType) {
+                    case 'purchase':
+                        const sendTransaction = () => {
+                            window.abtasty.send("transaction", {
+                                tid: eventData.transaction_id,
+                                ta: "Purchase",
+                                tr: eventData.value,
+                                ts: 0,
+                                tt: 0,
+                                tc: eventData.currency || 'EUR',
+                                tcc: "",
+                                pm: "",
+                                sm: "",
+                                icn: eventData.items.length,
+                            });
+                            window.abtasty.send("item", {
+                                "tid": eventData.transaction_id,
+                                "in": eventData.items.map(item => item.item_name).join(', '),
+                                "ip": eventData.value,
+                                "iq": eventData.items.length,
+                                "ic": eventData.items.map(item => item.item_id).join(', '),
+                                "iv": ""
+                            });
+                        };
+                        const checkTransctionTag = () => {
+                            if (window.abtasty && window.abtasty.send) {
+                                sendTransaction();
+                            } else {
+                                setTimeout(checkTransctionTag, 1000);
+                            }
+                        };
+                        checkTransctionTag();
+                        break;
+                }
+            }
+        }
+    }
+
+    // Traiter la file d'attente lorsque le consentement est accordé
+    document.addEventListener('cookieConsentUpdated', function () {
+        window.ecommerceEvents.processQueue();
+    });
+
+    // Si le gestionnaire est déjà prêt, traiter la file d'attente
+    if (window.cookieConsent && window.cookieConsent.initialized
+    ) {
+        window.ecommerceEvents.processQueue();
+    }
+})
+();
