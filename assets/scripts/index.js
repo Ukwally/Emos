@@ -18,7 +18,7 @@ document.addEventListener('scroll', () => {
     }
 
     //const tela = document.getElementById('body').getBoundingClientRect().bottom;
-    //Ocalculo abaixo precisa ser revisto;
+    //O calculo abaixo precisa ser revisto;
     const tela = document.body.scrollHeight;
     const fimDatela = tela - 900;
     if (window.scrollY > fimDatela) {

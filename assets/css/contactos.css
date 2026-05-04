@@ -101,10 +101,14 @@ header {
   );
   /*background: linear-gradient(10deg,var(--primary-Blue8)0%,var(--primary-Blue12),var(--primary-Blue13),var(--primary-Blue8)80%);
   */
-  min-height: 90px;
   z-index: 1;
   position: relative;
   box-shadow: 0 4px 10px 0px rgba(4, 108, 243, 0.171);
+  width: 100%;
+}
+header.visivel {
+  position: fixed;
+  top: 0;
 }
 header .head1 {
   padding: 0 5%;
@@ -221,14 +225,15 @@ header .head3 a {
   .section-contacto-redes
   span
   .rede-icon {
-  background-color: var(--dark2);
+  background-color: var(--primary-Blue2);
   height: 20px;
   width: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: var(--primary-Blue5);
+  color: var(--primary-Blue7);
+  font-size: 10px;
 }
 @media only screen and (min-width: 800px) {
   .section-contacto .section-contacto-set .section-contacto-item {
@@ -246,7 +251,12 @@ header .head3 a {
   );
 }
 .section-form .section-form-content {
-  background-color: var(--primary-Blue2);
+  /*background-color: var(--primary-Blue2);*/
+  background: linear-gradient(
+    135deg,
+    var(--primary-Blue2),
+    var(--primary-Blue5)
+  );
   /*box-shadow: 0 3px 6px 0px rgba(59, 101, 155, 0.075);*/
   box-shadow: 0 3px 12px 0px rgba(4, 108, 243, 0.082);
   display: flex;
@@ -341,7 +351,7 @@ header .head3 a {
   padding: 5% 10%;
 }
 .section-Lugar-content {
-  background-color: var(--primary-Blue2);
+  /*background-color: var(--primary-Blue2);*/
   border-radius: 20px;
   padding: 5%;
 }
@@ -373,9 +383,40 @@ header .head3 a {
     width: 90%;
   }
 }
+/*FIXED BUTONS COSTOM*/
+.btn-sets {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.btn-sets .btn-topo {
+  background-color: var(--primary-Blue10);
+  color: whitesmoke;
+  height: 40px;
+  width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  transition: all 0.2s;
+  scale: 0;
+  opacity: 0;
+}
+.btn-sets .btn-topo.visivel {
+  transition: all 0.3s;
+  scale: 1;
+  opacity: 1;
+}
+.btn-sets .btn-topo.opaco {
+  background-color: var(--primary-Blue17);
+  opacity: 0.8;
+  box-shadow: 0 3px 6px 0px rgba(0, 32, 73, 0.178);
+  transform: translateY(-90px);
+}
 /*FOOTER COSTOM*/
 footer {
   margin-top: 100px;
+  padding-top: 40px;
   /*background-color: var(--primary-Blue18);*/
   background: linear-gradient(
     125deg,
@@ -398,6 +439,7 @@ footer div ul {
   margin: 0;
   padding: 0;
   margin-right: 40px;
+  margin-top: 20px;
 }
 footer div ul li span {
   background-color: var(--primary-Blue15);
