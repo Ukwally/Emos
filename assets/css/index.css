@@ -254,6 +254,13 @@ header .head3 a {
   display: flex;
   justify-content: center;
   align-self: center;
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: all 0.3s;
+}
+.section-banner .banner-content .banner-img-set.ativo {
+  transform: translateY(0);
+  opacity: 1;
 }
 .section-banner .banner-content .banner-img {
   height: 250px;

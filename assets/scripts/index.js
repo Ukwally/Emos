@@ -1,8 +1,10 @@
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('banner-img-set').classList.add('ativo');
+})
 document.addEventListener('scroll', () => {
+    //Fixar header abaixo
     const btnTopo = document.getElementById('btn-topo');
     window.scrollY > 100 ? btnTopo.classList.add('visivel') : btnTopo.classList.remove('visivel');
-
-
 
     const header = document.getElementById('header');
     const head1 = document.getElementById('head1');
@@ -17,6 +19,7 @@ document.addEventListener('scroll', () => {
         head1.style = 'display:flex';
     }
 
+    //opacitar o BTN Button 
     //const tela = document.getElementById('body').getBoundingClientRect().bottom;
     //O calculo abaixo precisa ser revisto;
     const tela = document.body.scrollHeight;
@@ -26,4 +29,17 @@ document.addEventListener('scroll', () => {
     } else {
         btnTopo.classList.remove('opaco')
     }
+});
+
+window.addEventListener('scroll', function () {
+    const elementoAnimado = document.querySelectorAll('.animado');
+
+    elementoAnimado.forEach(function (box) {
+        const posicaoElemento = box.getBoundingClientRect().top;
+        const areaRenderizada = window.innerHeight / 1.5; 
+
+        if (posicaoElemento < areaRenderizada) {
+            box.classList.add('ativo');
+        }
+    });
 });
