@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
-<body>
+<body id="body">
     <header id="header">
-        <div class="head1"><small> <span style="font-size: 11px;">EMOSIST</span> - Consultoria em RH</small></div>
-        <div class="head2">
+        <div class="head1" id="head1"><small> <span style="font-size: 11px;">EMOSIST</span> - Consultoria em RH</small>
+        </div>
+        <div class="head2" id="head2">
             <div class="head-logo-section">
                 <span class="logo">
                     <!--img src="./assets/img/emosist-logo.png" alt="EMOSIST" srcset=""-->
@@ -42,7 +43,7 @@
                 </nav>
             </div>
         </div>
-        <div class="head3">
+        <div class="head3" id="head3">
             <small>
                 <a href="./pages/login.html">Acesso restrito
                     <span>
@@ -519,6 +520,18 @@
                 </div>
             </div>
         </div>
+        <div class="btn-sets">
+            <a href="#header">
+                <span class="btn-topo" id="btn-topo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-move-up-icon lucide-move-up">
+                        <path d="M8 6L12 2L16 6" />
+                        <path d="M12 2V22" />
+                    </svg>
+                </span>
+            </a>
+        </div>
     </main>
     <footer>
         <div class="footer-links-set">
@@ -574,9 +587,10 @@
                     style="text-decoration:underline;">ELISABETH PEDRO</a></small></div>
         <div><small>&copy Copiryght - EMOSIST - Todos os direitos reservados <span>| <a href="#">Temos e condiçãoes</a>,
                     <a href="#">Politicas de privacidade</a>.</span></small></div>
+
+        <span id="bottom"></span>
     </footer>
     <script src="./assets/scripts/index.js"></script>
-
     <script>
         //pegar os botoes de filtro
         const Presenciais = document.querySelectorAll('.Presencial');
