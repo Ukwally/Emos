@@ -70,7 +70,7 @@
 html {
   scroll-behavior: smooth;
 }
-/*GERAR CONTOMIZATION*/
+/*GERAL CONTOMIZATION*/
 * {
   font-family:
     system-ui,
@@ -91,9 +91,16 @@ body {
 }
 /*HEADER CONTOMIZATION*/
 header {
+  /*background-color: var(--primary-Blue12);*/
+  background: linear-gradient(
+    10deg,
+    var(--primary-Blue12) 0%,
+    var(--primary-Blue11) 20%,
+    var(--primary-Blue10) 40%,
+    var(--primary-Blue8) 50%
+  );
   /*background: linear-gradient(10deg,var(--primary-Blue8)0%,var(--primary-Blue12),var(--primary-Blue13),var(--primary-Blue8)80%);
   */
-  background-color: var(--primary-Blue12);
   min-height: 90px;
   z-index: 1;
   position: relative;
@@ -108,6 +115,9 @@ header .head2 {
   justify-content: space-between;
   background-color: var(--primary-Blue8);
   padding: 10px 5%;
+}
+header .head2 .head-logo-section {
+  display: none;
 }
 header .head2 .head-logo-section .logo {
   color: #fff;
@@ -140,6 +150,9 @@ header .head2 .head-menu-section nav a ul {
   overflow: hidden;
   height: 0;
   transition: all 0.3s;
+  z-index: 2;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px 0px rgba(4, 108, 243, 0.219);
 }
 header .head2 .head-menu-section nav a:hover {
   & ul {
@@ -148,23 +161,37 @@ header .head2 .head-menu-section nav a:hover {
 }
 header .head2 .head-menu-section nav a ul li {
   list-style: none;
+  box-sizing: border-box;
+  font-size: 13px;
+  padding: 0 5px;
+  padding-top: 5px;
 }
 header .head3 {
-  background-color: var(--primary-Blue7);
+  /*background-color: var(--primary-Blue7);*/
   display: flex;
   justify-content: flex-end;
   padding: 5px 5%;
+  background: linear-gradient(
+    10deg,
+    var(--primary-Blue8) 0%,
+    var(--primary-Blue8) 55%,
+    var(--primary-Blue7) 60%
+  );
 }
 header .head3 a {
   color: var(--primary-Blue1);
   text-decoration: none;
+}
+@media only screen and (min-width: 800px) {
+  header .head2 .head-logo-section {
+    display: initial;
+  }
 }
 /*SECTION contacto COSTOM*/
 .section-contacto {
   padding: 5% 10%;
 }
 .section-contacto-set {
-  background-color: var(--primary-Blue1);
   display: flex;
   flex-wrap: wrap;
 }
@@ -203,7 +230,7 @@ header .head3 a {
   border-radius: 50%;
   color: var(--primary-Blue5);
 }
-@media only screen and (min-width:800px) {
+@media only screen and (min-width: 800px) {
   .section-contacto .section-contacto-set .section-contacto-item {
     padding: 2% 4%;
     width: fit-content;
@@ -212,10 +239,16 @@ header .head3 a {
 /*SECTION LUGAR FORM COSTOM*/
 .section-form {
   padding: 5% 10%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-Blue3),
+    var(--primary-Blue6)
+  );
 }
 .section-form .section-form-content {
   background-color: var(--primary-Blue2);
-  box-shadow: 0 3px 6px 0px rgba(59, 101, 155, 0.075);
+  /*box-shadow: 0 3px 6px 0px rgba(59, 101, 155, 0.075);*/
+  box-shadow: 0 3px 12px 0px rgba(4, 108, 243, 0.082);
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -236,17 +269,22 @@ header .head3 a {
   height: 30px;
   box-sizing: border-box;
   border: 1px solid var(--primary-Blue5);
-  outline: 3px solid var(--primary-Blue2);
   border-radius: 4px;
   margin-top: 15px;
+  padding-left: 7px;
+}
+.section-form .section-form-content .form-set form .input:focus {
+  outline: 3px solid var(--primary-Blue2);
 }
 .section-form .section-form-content .form-set form textarea {
   min-height: 80px;
   resize: none;
   border: 1px solid var(--primary-Blue5);
-  outline: 3px solid var(--primary-Blue2);
   border-radius: 4px;
   margin-top: 15px;
+}
+.section-form .section-form-content .form-set form textarea:focus {
+  outline: 3px solid var(--primary-Blue2);
 }
 .section-form .section-form-content .form-set form .checkbox-termos {
   background-color: var(--primary-Blue2);
@@ -265,6 +303,13 @@ header .head3 a {
   font-weight: 500;
   padding: 5px;
 }
+.section-form .small-form-info {
+  width: auto;
+  display: flex;
+  font-size: 11px;
+  color: var(--dark12);
+  margin-top: 15px;
+}
 @media only screen and (min-width: 800px) {
   .section-form .section-form-content {
     flex-direction: row;
@@ -272,7 +317,25 @@ header .head3 a {
   .section-form .section-form-content .form-set form {
     min-width: 320px;
   }
+  .section-form .small-form-info {
+    width: 320px;
+  }
 }
+/*SECTION INFO LUCATION COSTOM
+
+.section-info-location {
+  padding: 0% 10%;
+  font-weight: 300;
+}
+.section-info-location div {
+  background-color: var(--dark1);
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 20px;
+}*/
+
 /*SECTION LUGAR COSTOM*/
 .section-Lugar {
   padding: 5% 10%;
@@ -303,12 +366,17 @@ header .head3 a {
 .section-Lugar-content iframe {
   border: 1px dashed var(--primary-Blue5);
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
+}
+@media only screen and (min-width: 800px) {
+  .section-Lugar-content iframe {
+    width: 90%;
+  }
 }
 /*FOOTER COSTOM*/
 footer {
   margin-top: 100px;
-  background-color: var(--primary-Blue18);
+  /*background-color: var(--primary-Blue18);*/
   background: linear-gradient(
     125deg,
     var(--primary-Blue18),
@@ -330,4 +398,41 @@ footer div ul {
   margin: 0;
   padding: 0;
   margin-right: 40px;
+}
+footer div ul li span {
+  background-color: var(--primary-Blue15);
+  height: 20px;
+  width: 20px;
+  display: inline-flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--primary-Blue4);
+}
+footer div ul li input[type="email"] {
+  border: 1px solid var(--primary-Blue16);
+  border-radius: 5px;
+  height: 35px;
+  background-color: var(--primary-Blue18);
+  color: var(--primary-Blue3);
+  margin-top: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 6px 0px rgba(0, 32, 73, 0.178);
+}
+footer div ul li input[type="submit"] {
+  border: none;
+  background-color: var(--primary-Blue15);
+  color: var(--primary-Blue3);
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px 0px rgba(0, 32, 73, 0.178);
+  content: "Inscrever";
+  margin-top: 15px;
+}
+footer .footer-links-set {
+  display: flex;
+  flex-wrap: wrap;
 }

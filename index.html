@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="head1"><small>Consultoria em RH</small></div>
+    <header id="header">
+        <div class="head1"><small> <span style="font-size: 11px;">EMOSIST</span> - Consultoria em RH</small></div>
         <div class="head2">
             <div class="head-logo-section">
                 <span class="logo">
@@ -20,7 +20,7 @@
             </div>
             <div class="head-menu-section">
                 <nav>
-                    <a href="#">Home</a>
+                    <a href="#header">Home</a>
                     <a href="#quemSomos">Quem somos </a>
                     <a href="#consultoria">Consultoria</a>
                     <a href="#formacoes">formação <span class="menu-chevron">▶</span>
@@ -30,14 +30,14 @@
                             <li>Plataforma</li>
                         </ul>
                     </a>
-                    <a href="#">Recrutamento
+                    <a href="#Recrutamento">Recrutamento
                         <span class="menu-chevron">▶</span>
                         <ul>
                             <li>Candidaturas</li>
                             <li>Metodologia</li>
                         </ul>
                     </a>
-                    <a href="#">Parceiros</a>
+                    <a href="#Parceiros">Parceiros</a>
                     <a href="./pages/contactos.html">Contactos</a>
                 </nav>
             </div>
@@ -184,16 +184,17 @@
         <section class="section section-cta2" id="quemSomos">
             <div class="section-cta-set2">
                 <h1>Emosist</h1>
-                <p>Solicite agora mesmo os nossos serviços
+                <p>
+                    <span class="texto-oculto-para-mobile"> Solicite agora mesmo os nossos serviços.</span>
                     A EMOSIST exerce a actividade de Consultoria de Recursos Humanos nas empresas, públicas e
                     privadas, nas instituições do Poder Central e no Poder Local, designadamente:
-                    <span onclick="abrirModal()"><u>Ver mais sobre</u></span>
+                    <span onclick="abrirModal()"><u style="cursor: pointer;">Ver mais sobre</u></span>
                 </p>
                 <a href="#" class="">Contactar</a>
             </div>
         </section>
 
-        <section class="section section-recrutamento">
+        <section class="section section-recrutamento" id="Recrutamento">
 
             <div class="section-recrutamento-descricao">
                 <h1>Recrutamento e Selecção de Pessoal</h1>
@@ -216,12 +217,12 @@
 
             <div class="section-recrutamento-metodologia">
                 <h4>Metodologia</h4>
-                <span>
+                <!--span>
                     O recrutamento é uma fase crucial no processo da Gestão de Recursos Humanos.
                     A EMOSIST está preparada para ajudar os gestores a diminuírem os riscos de recrutamentos mal
                     sucedidos.
                     Neste âmbito executamos:
-                </span>
+                </span-->
 
                 <div>
                     <span>1. Processo Completo:</span>
@@ -238,7 +239,7 @@
                     <span>3. Avaliação:</span>
                     - Aplicação de testes; Questionários de Personalidade; Apuramento de Resultados.
                 </div>
-                <span>
+                <!--span>
                     Para informações mais detalhadas não deixe de nos consultar. Veja os processos que temos em curso na
                     parte "CANDIDATURAS" desta página e, se for o caso, candidate-se.
                     Se reune conhecimentos e competências nalguma especialidade ou nalguma área da gestão e possui um
@@ -246,14 +247,14 @@
                     potencial, procuraremos encontrar-lhe uma colocação adequada, que o satisfaça e motive. CONFIE EM
                     NÓS,
                     somos profissionais e guardaremos rigoroso sigilo.
-                </span>
+                </span-->
             </div>
         </section>
-        <div class="section-header">
+        <div class="section-header header-parceiros" id="Parceiros">
             <h1>Nossos Parceiros</h1>
             <p>Nossos Parceiros</p>
         </div>
-        <section class="section section-parceiros" id="Parceiros">
+        <section class="section section-parceiros">
             <div class="section-parceiros-set">
                 <div class="each-parceiro"><img src="./assets/img/P_Dupla-Humana.png" alt=""></div>
                 <div class="each-parceiro"><img src="./assets/img/NevesdeAlmeida.png" alt=""></div>
@@ -520,26 +521,24 @@
         </div>
     </main>
     <footer>
-        <div>
+        <div class="footer-links-set">
             <ul>
                 <li><b>Navegação</b></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Quem</a></li>
                 <li><a href="#">Consultoria</a></li>
                 <li><a href="#">formação</a></li>
-                <li><a href="#">Recrutamento</a></li>
+                <li><a href="#Recrutamento">Recrutamento</a></li>
                 <li><a href="#">Parceiros</a></li>
-                <li><a href="#">Contactos</a></li>
             </ul>
             <ul>
-                <li><b>Contactos</b></li>
+                <li><b>Redes sociais</b></li>
                 <li>Home</li>
                 <li>Quem</li>
                 <li>Consultoria</li>
                 <li>formação</li>
                 <li>Recrutamento</li>
                 <li>Parceiros</li>
-                <li>Contactos</li>
             </ul>
             <ul>
                 <li><b>Contactos</b></li>
@@ -547,16 +546,27 @@
                     Rua Guilherme Pereira Inglês, 42 – 1º Dtº <br>
                     (prédio de esquina com o Largo da Ingombota),Luanda.<br>
                     Telefone: +244 222 331 060 <br>
-                    - e-mail: emosist@emosist.com <br>
-                    - web: www.emosist.com
+                    E-mail: emosist@emosist.com <br>
+                    Web: www.emosist.com
+                </li>
+                <li>
+                    <span>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </span>
+                    <span>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </span>
+                    <span>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </span>
                 </li>
 
             </ul>
             <ul>
                 <li><b>News Latter</b></li>
-                <li> Increva-te para receber novidades</li>
-                <li> <input type="email" placeholder="O teu Email"></li>
-                <li> <input type="submit" name="" id=""></li>
+                <li> Increva-te para receber novidades !</li>
+                <li> <input type="email" placeholder="O teu Email" value="O teu Email"></li>
+                <li> <input type="submit" name="" id="" value="Inscrever ✈"></li>
 
             </ul>
         </div>

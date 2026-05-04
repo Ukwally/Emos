@@ -91,9 +91,16 @@ body {
 }
 /*HEADER CONTOMIZATION*/
 header {
+  /*background-color: var(--primary-Blue12);*/
+  background: linear-gradient(
+    10deg,
+    var(--primary-Blue12) 0%,
+    var(--primary-Blue11) 20%,
+    var(--primary-Blue10) 40%,
+    var(--primary-Blue8) 50%
+  );
   /*background: linear-gradient(10deg,var(--primary-Blue8)0%,var(--primary-Blue12),var(--primary-Blue13),var(--primary-Blue8)80%);
   */
-  background-color: var(--primary-Blue12);
   min-height: 90px;
   z-index: 1;
   position: relative;
@@ -144,6 +151,9 @@ header .head2 .head-menu-section nav a ul {
   overflow: hidden;
   height: 0;
   transition: all 0.3s;
+  z-index: 2;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px 0px rgba(4, 108, 243, 0.219);
 }
 header .head2 .head-menu-section nav a:hover {
   & ul {
@@ -152,12 +162,22 @@ header .head2 .head-menu-section nav a:hover {
 }
 header .head2 .head-menu-section nav a ul li {
   list-style: none;
+  box-sizing: border-box;
+  font-size: 13px;
+  padding: 0 5px;
+  padding-top: 5px;
 }
 header .head3 {
-  background-color: var(--primary-Blue7);
+  /*background-color: var(--primary-Blue7);*/
   display: flex;
   justify-content: flex-end;
   padding: 5px 5%;
+  background: linear-gradient(
+    10deg,
+    var(--primary-Blue8) 0%,
+    var(--primary-Blue8) 55%,
+    var(--primary-Blue7) 60%
+  );
 }
 header .head3 a {
   color: var(--primary-Blue1);
@@ -230,9 +250,12 @@ header .head3 a {
   height: 30px;
   box-sizing: border-box;
   border: 1px solid var(--primary-Blue5);
-  outline: 3px solid var(--primary-Blue2);
   border-radius: 4px;
   margin-top: 15px;
+  padding-left: 7px;
+}
+.section-login .section-login-content .section-login-set form input:focus {
+  outline: 3px solid var(--primary-Blue2);
 }
 .section-login .section-login-content .section-login-set form button {
   background-color: var(--primary-Blue8);
@@ -250,7 +273,8 @@ header .head3 a {
 }
 /*FOOTER COSTOM*/
 footer {
-  background-color: var(--primary-Blue18);
+  margin-top: 100px;
+  /*background-color: var(--primary-Blue18);*/
   background: linear-gradient(
     125deg,
     var(--primary-Blue18),
@@ -272,4 +296,41 @@ footer div ul {
   margin: 0;
   padding: 0;
   margin-right: 40px;
+}
+footer div ul li span {
+  background-color: var(--primary-Blue15);
+  height: 20px;
+  width: 20px;
+  display: inline-flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--primary-Blue4);
+}
+footer div ul li input[type="email"] {
+  border: 1px solid var(--primary-Blue16);
+  border-radius: 5px;
+  height: 35px;
+  background-color: var(--primary-Blue18);
+  color: var(--primary-Blue3);
+  margin-top: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 6px 0px rgba(0, 32, 73, 0.178);
+}
+footer div ul li input[type="submit"] {
+  border: none;
+  background-color: var(--primary-Blue15);
+  color: var(--primary-Blue3);
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px 0px rgba(0, 32, 73, 0.178);
+  content: "Inscrever";
+  margin-top: 15px;
+}
+footer .footer-links-set {
+  display: flex;
+  flex-wrap: wrap;
 }

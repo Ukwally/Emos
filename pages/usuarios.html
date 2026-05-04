@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <div class="head1"><small>Consultoria em RH</small></div>
+        <div class="head1"><small> <span style="font-size: 11px;">EMOSIST</span> - Consultoria em RH</small></div>
         <div class="head2">
             <div class="head-logo-section">
                 <span class="logo">
@@ -22,16 +22,16 @@
             <div class="head-menu-section">
                 <nav>
                     <a href="../index.html">Home</a>
-                    <a href="#quemSomos">Quem somos </a>
-                    <a href="#consultoria">Consultoria</a>
-                    <a href="#formacoes">formação <span class="menu-chevron">▶</span>
+                    <a href="../index.html#quemSomos">Quem somos </a>
+                    <a href="../index.html#consultoria">Consultoria</a>
+                    <a href="../index.html#formacoes">formação <span class="menu-chevron">▶</span>
                         <ul>
                             <li>Presencial</li>
                             <li>E-Learning</li>
                             <li>Plataforma</li>
                         </ul>
                     </a>
-                    <a href="#">Recrutamento
+                    <a href="../index.html#Recrutamento">Recrutamento
                         <span class="menu-chevron">▶</span>
                         <ul>
                             <li>Candidaturas</li>
@@ -39,7 +39,7 @@
                         </ul>
                     </a>
                     <a href="../index.html#Parceiros">Parceiros</a>
-                    <a href="./pages/contactos.html">Contactos</a>
+                    <a href="./contactos.html">Contactos</a>
                 </nav>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <strong>Olá, Elisabeth 👋🏽 </strong>
             </div>
 
-            <div class="menu-iten">
+            <div class="menu-iten" style=" border-top-left-radius:7px;  border-top-right-radius: 7px;">
                 <span onclick="tab('Cursos')">Cursos</span>
                 <span> <i class="fa fa-phone"></i> Online</span>
                 <span> <i class="fa fa-users"></i> Presencial</span>
@@ -79,18 +79,172 @@
                 <span> <i class="fa fa-send"></i> Candidatar-se</span>
             </div>
 
-            <div class="menu-iten">
+            <div class="menu-iten" style="border-bottom-left-radius: 7px; border-bottom-right-radius: 7px;">
                 <span onclick="tab('Dados')">Dados Pessoais</span>
                 <span> <i class="fa fa-eye"></i> Ver dados</span>
                 <span> <i class="fa fa-pencil"></i> Alterar dados</span>
             </div>
         </section>
         <section class="section-rigth">
-            <div class="tab" id="tab-Cursos">
+            <div class="tab-cursos" id="tab-Cursos">
                 <h1>Cursos</h1>
+                <!-- ESPECIAL CURSOS INICIO -->
+
+                <section class="section section-cursos-Cards">
+                    <div class="section-cursos-Cards-filter">
+                        <div><small id="filterOnline">Online</small><small id="filterPresencial"
+                                class="selected">Presencial</small></div>
+                    </div>
+                    <div class="section-cursos-Cards-content">
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">🌐</div>
+                            <h3>Administrativos</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Organização e Manutenção do Arquivo</small>
+                                <small> <span>✔</span> Circuito Documental na Organização</small>
+                                <small> <span>✔</span> Gestão Informatizada da Documentação</small>
+                                <small> <span>✔</span> Secretariado Executivo</small>
+                                <small> <span>✔</span> Secretariado Geral</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">🌐</div>
+                            <h3>Econômico-Financeira</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Cálculo Financeiro</small>
+                                <small> <span>✔</span> Contabilidade Geral Nível I</small>
+                                <small> <span>✔</span> Contabilidade Geral Nível II</small>
+                                <small> <span>✔</span> Elaboração de Projectos de Investimento</small>
+                                <small> <span>✔</span> Contabilidade Analítica</small>
+                                <small> <span>✔</span> Gestão Financeira</small>
+                                <small> <span>✔</span> Estatística Descritiva</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">🦷</div>
+                            <h3>Gestão</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Gestão e Organização do Armazém</small>
+                                <small> <span>✔</span> Gestão de Stocks</small>
+                                <small> <span>✔</span> Planear e Gerir Projectos</small>
+                                <small> <span>✔</span> Planeamento e Controlo de Gestão Nível I</small>
+                                <small> <span>✔</span> Planeamento e Controlo de Gestão Nível II</small>
+                                <small> <span>✔</span> Gestão Bancária – Crédito a Empresas</small>
+                                <small> <span>✔</span> Gestão Bancária – Crédito a Particulares</small>
+                                <small> <span>✔</span> Balanced Score Card</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">🦷</div>
+                            <h3>Informática</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Outlook e Pesquisa na Internet</small>
+                                <small> <span>✔</span> MS Project - Aplicação para Gestão de Projectos</small>
+                                <small> <span>✔</span> Power-Point - Criar Apresentações</small>
+                                <small> <span>✔</span> Excel Nível I - Básico</small>
+                                <small> <span>✔</span> Microsoft Office - Iniciados
+                                    (Windows+Word+Excel+Power-Point)</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">🦷</div>
+                            <h3>Recursos Humanos</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Gestão do Tempo e Condução de Reuniões</small>
+                                <small> <span>✔</span> Balanço Social</small>
+                                <small> <span>✔</span> Legislação do Trabalho - Conceitos e Práticas
+                                    Fundamentais</small>
+                                <small> <span>✔</span> Recrutamento e Selecção</small>
+                                <small> <span>✔</span> Análise, Descrição e Qualificação de Funções</small>
+                                <small> <span>✔</span> Planeamento e Gestão da Formação</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">🦷</div>
+                            <h3>Comercial e marketing</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Gestão e Tratamento de Reclamações</small>
+                                <small> <span>✔</span> Técnicas de Negociação</small>
+                                <small> <span>✔</span> Atendimento e Vendas</small>
+                                <small> <span>✔</span> Gestão Comercial e Marketing</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Online">
+                            <div class="cursos-Cards-modalidade"><small>Online</small></div>
+                            <div class="cursos-Cards-icon ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-lightbulb-icon lucide-lightbulb">
+                                    <path
+                                        d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                                    <path d="M9 18h6" />
+                                    <path d="M10 22h4" />
+                                </svg>
+                            </div>
+                            <h3>Comportamental</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Negociação e Gestão de Conflitos</small>
+                                <small> <span>✔</span> Comunicação e Protocolo</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                        <div class="each-cursos-Cards Presencial">
+                            <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
+                            <div class="cursos-Cards-icon ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-headset-icon lucide-headset">
+                                    <path
+                                        d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
+                                    <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
+                                </svg>
+                            </div>
+                            <h3>Outras</h3>
+                            <div class="cursos-Cards-descricao">
+                                <small> <span>✔</span> Introdução aos Métodos de Avaliação Imobiliária</small>
+                                <small> <span>✔</span> Técnicas de Mediação Imobiliária</small>
+                                <small> <span>✔</span> Organizar Eventos</small>
+                                <small> <span>✔</span> Desenvolvimento de Competências Pedagógicas</small>
+                                <small> <span>✔</span> Língua Portuguesa - Redacção de Documentos</small>
+                                <small> <span>✔</span> Lingua Portuguesa - Aperfeiçoamento</small>
+                            </div>
+                            <div class="cursos-Cards-footer">
+                                <a href="./pages/login.html"><small>Solicite Agora <span>➡</span> </small></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--ESPECIAL CURSOS INICIO-->
+
             </div>
             <div class="tab" id="tab-Candidaturas">
-                <h1>Candidaturas</h1>
+                <h1>Sem candidaturas !</h1>
             </div>
             <div class="tab" id="tab-Dasos">
                 <h1>Dasos Pessoais</h1>
@@ -99,26 +253,53 @@
 
     </main>
     <footer>
-        <div>
+        <div class="footer-links-set">
             <ul>
                 <li><b>Navegação</b></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Quem</a></li>
                 <li><a href="#">Consultoria</a></li>
                 <li><a href="#">formação</a></li>
-                <li><a href="#">Recrutamento</a></li>
+                <li><a href="#Recrutamento">Recrutamento</a></li>
                 <li><a href="#">Parceiros</a></li>
-                <li><a href="#">Contactos</a></li>
             </ul>
             <ul>
-                <li><b>Contactos</b></li>
+                <li><b>Redes sociais</b></li>
                 <li>Home</li>
                 <li>Quem</li>
                 <li>Consultoria</li>
                 <li>formação</li>
                 <li>Recrutamento</li>
                 <li>Parceiros</li>
-                <li>Contactos</li>
+            </ul>
+            <ul>
+                <li><b>Contactos</b></li>
+                <li>
+                    Rua Guilherme Pereira Inglês, 42 – 1º Dtº <br>
+                    (prédio de esquina com o Largo da Ingombota),Luanda.<br>
+                    Telefone: +244 222 331 060 <br>
+                    E-mail: emosist@emosist.com <br>
+                    Web: www.emosist.com
+                </li>
+                <li>
+                    <span>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </span>
+                    <span>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </span>
+                    <span>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </span>
+                </li>
+
+            </ul>
+            <ul>
+                <li><b>News Latter</b></li>
+                <li> Increva-te para receber novidades !</li>
+                <li> <input type="email" placeholder="O teu Email" value="O teu Email"></li>
+                <li> <input type="submit" name="" id="" value="Inscrever ✈"></li>
+
             </ul>
         </div>
         <div><small>DESENVOLVIDO COM 🤍 POR: <a href="http://ukwally.github.io/Elisabeth"
@@ -167,6 +348,41 @@
         }
 
 
+    </script>
+
+    <script>
+        //pegar os botoes de filtro
+        const Presenciais = document.querySelectorAll('.Presencial');
+        const Onlines = document.querySelectorAll('.Online');
+
+
+        //Mostrar apenas os onlines
+        const filterOnline = document.getElementById('filterOnline');
+        filterOnline.addEventListener('click', () => {
+            filterOnline.classList.toggle('selected');
+            filterPresencial.classList.toggle('selected');
+
+            Presenciais.forEach(cardpresencial => {
+                cardpresencial.classList.add('invisivel');
+            });
+            Onlines.forEach(cardpresencial => {
+                cardpresencial.classList.remove('invisivel');
+            });
+        });
+
+        //Mostrar apenas os presenciais
+        const filterPresencial = document.getElementById('filterPresencial');
+        filterPresencial.addEventListener('click', () => {
+            filterPresencial.classList.toggle('selected');
+            filterOnline.classList.toggle('selected');
+
+            Onlines.forEach(cardonline => {
+                cardonline.classList.add('invisivel');
+            });
+            Presenciais.forEach(cardonline => {
+                cardonline.classList.remove('invisivel');
+            });
+        });
     </script>
 </body>
 
