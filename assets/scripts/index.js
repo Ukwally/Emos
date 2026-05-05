@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('banner-img-set').classList.add('ativo');
     document.getElementById('banner-txt-small').classList.add('ativo');
     document.getElementById('banner-txt-h').classList.add('ativo');
+    document.getElementById('banner-txt-p').classList.add('ativo');
 })
 document.addEventListener('scroll', () => {
     //Fixar header abaixo

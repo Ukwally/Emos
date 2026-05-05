@@ -134,6 +134,7 @@ header .head2 .head-logo-section .logo {
   box-shadow: 0px 2px 4px 0px #00000021;
 }
 header .head2 .head-menu-section nav {
+  display: none;
 }
 header .head2 .head-menu-section nav a {
   color: var(--primary-Blue1);
@@ -171,6 +172,17 @@ header .head2 .head-menu-section nav a ul li {
   font-size: 13px;
   padding: 0 5px;
   padding-top: 5px;
+}
+header .head2 .head-menu-section .menu-icon {
+  background-color: var(--primary-Blue7);
+  display: flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px 0px rgba(4, 108, 243, 0.219);
+}
+header .head2 .head-menu-section .menu-icon svg {
+  stroke: var(--primary-Blue2);
 }
 header .head3 {
   /*background-color: var(--primary-Blue7);*/
@@ -243,6 +255,15 @@ header .head3 a {
   font-size: 2.2rem;
   font-weight: 600;
   margin-top: 10px;
+
+  transform: translateX(300px);
+  opacity: 0;
+  transition: all 1s;
+}
+.section-banner .banner-content .banner-txt-set p.ativo {
+  transform: translateX(0px);
+  opacity: 1;
+  transition-delay: 1.5s;
 }
 .section-banner .banner-content .banner-txt-set a {
   text-decoration: none;
@@ -272,15 +293,15 @@ header .head3 a {
   display: flex;
   justify-content: center;
   align-self: center;
-  transform: translateY(-100px);
+  transform: translateY(-200px);
   opacity: 0.2;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 .section-banner .banner-content .banner-img-set.ativo {
   transform: translateY(0);
   opacity: 1;
-  animation-delay: 0.3s;
-  animation: vibrarVertical 0.6s;
+  /*animation-delay: 0.3s;
+  animation: vibrarVertical 0.6s;*/
 }
 @keyframes vibrarVertical {
   0% {
