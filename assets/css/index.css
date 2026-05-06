@@ -237,8 +237,7 @@ header .head3 a {
 }
 .section-banner .banner-content .banner-txt-set h1 {
   color: var(--primary-Blue10);
-  font-size: 3rem;
-  /*font-size: 2.6rem;*/
+  font-size: 2.6rem; /*OBS ATT Provavel bug no diplay header começou aqui tracar por 3rem*/
   margin-top: 10px;
   margin-bottom: 0px;
 
@@ -286,7 +285,7 @@ header .head3 a {
 }
 
 .section-banner .banner-content .banner-img-set {
-  height: 250px;
+  height: 250px; /*OBS ATT Provavel bug no diplay header começou aqui tracar por 300px o width também*/
   width: 250px;
   border-radius: 50%;
   border: 1px solid var(--primary-Blue5);
@@ -328,7 +327,7 @@ header .head3 a {
     justify-content: space-between;
     width: 90%;
   }
-  /*
+
   .section-banner .banner-content .banner-txt-set h1 {
     font-size: 3rem;
   }
@@ -345,7 +344,6 @@ header .head3 a {
     width: 290px;
     height: 290px;
   }
-  */
 }
 
 /*CARDS PARTS COSTOM*/
