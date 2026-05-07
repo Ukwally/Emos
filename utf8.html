@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+
+    <style>
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin: 10px 20px;
+            display: flex;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <ul id="Lista">
+
+        </ul>
+    </main>
+    <script>
+
+        for (let index = 10000; index < 30000; index++) {
+            const iten = document.createElement('li');
+            iten.innerHTML = '&#' + index;
+            document.getElementById('Lista').appendChild(iten);
+        }
+        const Lista = document.querySelectorAll('li');
+        console.log(Lista);
+        Lista.forEach(iten, function () {
+            alert('clif funciona');
+            iten.addEventListener('click', ()=>{
+                const texto = iten.innerText;
+                window.Clipboard(texto);
+                alert('COPIADO ' + texto);
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

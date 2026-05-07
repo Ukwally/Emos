@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1ba7fe">
-    <title>EMOSIST - HOME</title>
+    <title>🚀 EMOSIST - HOME</title>
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
 
 </head>
 
-<body id="body">
+<body id="body" onload="tracarImagem1()">
     <header id="header">
         <div class="head1" id="head1"><small> <span style="font-size: 11px;">EMOSIST</span> - Consultoria em RH</small>
         </div>
@@ -23,7 +26,8 @@
                 </span>
             </div>
             <div class="head-menu-section">
-                <nav>
+
+                <nav id="nav-menu">
                     <a href="#header">Home</a>
                     <a href="#quemSomos">Quem somos </a>
                     <a href="#consultoria">Consultoria</a>
@@ -44,15 +48,22 @@
                     <a href="#Parceiros">Parceiros</a>
                     <a href="./pages/contactos.html">Contactos</a>
                 </nav>
-                <span class="menu-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-menu-icon lucide-menu">
+                <span class="menu-icon" onclick="abrirMenu()">
+                    <svg class="menu-icon-svg" id="open-menu-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu">
                         <path d="M4 5h16" />
                         <path d="M4 12h16" />
                         <path d="M4 19h16" />
                     </svg>
+                    <svg class="menu-icon-svg hidden" id="close-menu-icon-svg" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
                 </span>
+
             </div>
         </div>
         <div class="head3" id="head3">
@@ -85,7 +96,7 @@
 
                 <div class="banner-img-set" id="banner-img-set">
                     <div class="banner-img">
-                        <img src="./assets/img/homem.png" alt="">
+                        <img id="banner-img-image" src="./assets/img/homem.png" alt="">
                     </div>
                 </div>
             </div>
@@ -196,7 +207,7 @@
 
         <section class="section section-cta2" id="quemSomos">
             <div class="section-cta-set2 animado">
-                <h1>Emosist</h1>
+                <h1>Sobre Nos</h1>
                 <p>
                     <span class="texto-oculto-para-mobile"> Solicite agora mesmo os nossos serviços.</span>
                     A EMOSIST exerce a actividade de Consultoria de Recursos Humanos nas empresas, públicas e
@@ -225,7 +236,7 @@
                     <b>Candidaturas:</b>
                     Oportunidades de emprego
                     Mantenha-se informado sobre os processos de Recrutamento em curso na Emosist.
-                    <button id="btn-ver-vagas" class="btn btn-ver-vagas">Consulte as ofertas existentes <span>
+                    <button id="btn-ver-vagas" class="btn btn-ver-vagas animado">Consulte as ofertas existentes <span>
                             ➡</span></button>
                 </span>
 
@@ -240,18 +251,18 @@
                     Neste âmbito executamos:
                 </span-->
 
-                <div>
+                <div class="metodo1 animado">
                     <span>1. Processo Completo:</span>
                     - Pesquisa; Triagem; Aplicação de Testes; Entrevistas; Questionários de Personalidade; Apuramento de
                     Resultados.
                 </div>
 
-                <div>
+                <div class="metodo2 animado">
                     <span>2. Avaliação e Selecção:</span>
                     - Aplicação de Testes; Entrevistas; Questionários de Personalidade; Apuramento de Resultados.
                 </div>
 
-                <div>
+                <div class="metodo3 animado">
                     <span>3. Avaliação:</span>
                     - Aplicação de testes; Questionários de Personalidade; Apuramento de Resultados.
                 </div>
@@ -310,7 +321,7 @@
             <div class="section-cursos-Cards-content">
                 <div class="each-cursos-Cards Presencial">
                     <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
-                    <div class="cursos-Cards-icon ">🌐</div>
+                    <div class="cursos-Cards-icon ">〄</div>
                     <h3>Administrativos</h3>
                     <div class="cursos-Cards-descricao">
                         <small> <span>✔</span> Organização e Manutenção do Arquivo</small>
@@ -325,7 +336,7 @@
                 </div>
                 <div class="each-cursos-Cards Presencial">
                     <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
-                    <div class="cursos-Cards-icon ">🌐</div>
+                    <div class="cursos-Cards-icon ">〄</div>
                     <h3>Econômico-Financeira</h3>
                     <div class="cursos-Cards-descricao">
                         <small> <span>✔</span> Cálculo Financeiro</small>
@@ -342,7 +353,7 @@
                 </div>
                 <div class="each-cursos-Cards Presencial">
                     <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
-                    <div class="cursos-Cards-icon ">🦷</div>
+                    <div class="cursos-Cards-icon ">〄</div>
                     <h3>Gestão</h3>
                     <div class="cursos-Cards-descricao">
                         <small> <span>✔</span> Gestão e Organização do Armazém</small>
@@ -360,7 +371,7 @@
                 </div>
                 <div class="each-cursos-Cards Presencial">
                     <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
-                    <div class="cursos-Cards-icon ">🦷</div>
+                    <div class="cursos-Cards-icon ">〄</div>
                     <h3>Informática</h3>
                     <div class="cursos-Cards-descricao">
                         <small> <span>✔</span> Outlook e Pesquisa na Internet</small>
@@ -375,7 +386,7 @@
                 </div>
                 <div class="each-cursos-Cards Presencial">
                     <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
-                    <div class="cursos-Cards-icon ">🦷</div>
+                    <div class="cursos-Cards-icon ">〄</div>
                     <h3>Recursos Humanos</h3>
                     <div class="cursos-Cards-descricao">
                         <small> <span>✔</span> Gestão do Tempo e Condução de Reuniões</small>
@@ -391,7 +402,7 @@
                 </div>
                 <div class="each-cursos-Cards Presencial">
                     <div class="cursos-Cards-modalidade"><small>Presencial</small></div>
-                    <div class="cursos-Cards-icon ">🦷</div>
+                    <div class="cursos-Cards-icon ">〄</div>
                     <h3>Comercial e marketing</h3>
                     <div class="cursos-Cards-descricao">
                         <small> <span>✔</span> Gestão e Tratamento de Reclamações</small>
@@ -474,7 +485,7 @@
             </div>
         </section>
         <div class="modal hidden" id="modal">
-            <div class="modal-set">
+            <div class="modal-set" id="modal-set">
                 <div class="modal-sobre-head">
                     <h1> Quem Somos</h1>
                     <span class="close-modal" onclick="abrirModal()">&#10005</span>
@@ -555,7 +566,7 @@
             <ul>
                 <li><b>Navegação</b></li>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Quem</a></li>
+                <li><a href="#">Quem Somos</a></li>
                 <li><a href="#">Consultoria</a></li>
                 <li><a href="#">formação</a></li>
                 <li><a href="#Recrutamento">Recrutamento</a></li>
@@ -563,12 +574,12 @@
             </ul>
             <ul>
                 <li><b>Redes sociais</b></li>
-                <li>Home</li>
-                <li>Quem</li>
-                <li>Consultoria</li>
-                <li>formação</li>
-                <li>Recrutamento</li>
-                <li>Parceiros</li>
+                <li> <a href="#Home">Linkedin</a> </li>
+                <li> <a href="#Quem">WhatsApp</a> </li>
+                <li> <a href="#Consultoria">Facebook</a> </li>
+                <li> <a href="#formação">Instagram</a> </li>
+                <li> <a href="#Recrutamento">Twitter</a> </li>
+                <li> <a href="#Parceiros">YouTube</a> </li>
             </ul>
             <ul>
                 <li><b>Contactos</b></li>
@@ -643,10 +654,56 @@
         });
     </script>
     <script>
+        function abrirMenu() {
+            const menu = document.getElementById('nav-menu');
+            const openMenuIconSvg = document.getElementById('open-menu-icon-svg');
+            const loseMenuIconSvg = document.getElementById('close-menu-icon-svg');
+            menu.classList.toggle('ativo');
+            openMenuIconSvg.classList.toggle('hidden');
+            loseMenuIconSvg.classList.toggle('hidden');
+        }
         function abrirModal() {
             const modal = document.getElementById('modal');
+            const modalSet = document.getElementById('modal-set');
             modal.classList.toggle('hidden');
         }
+
+        function tracarImagem1() {
+            const img = document.getElementById('banner-img-image');
+            img.src = "./assets/img/homem.png";
+            
+            setTimeout(() => {
+                tracarImagem2();
+            }, 4500);
+            
+        }
+        function tracarImagem2() {
+            const img = document.getElementById('banner-img-image');
+            img.src = "./assets/img/homem alegre.png";
+            setTimeout(() => {
+                tracarImagem3();
+            }, 4500);
+            
+        }
+        function tracarImagem3() {
+            const img = document.getElementById('banner-img-image');
+            img.src = "./assets/img/apertoDeMao.png";
+            setTimeout(() => {
+                tracarImagem4();
+            }, 4500);
+
+        }
+        function tracarImagem4() {
+            const img = document.getElementById('banner-img-image');
+            img.src = "./assets/img/mulher.png";
+            setTimeout(() => {
+                tracarImagem1();
+            }, 4500);
+
+        }
+
+
+
 
         const btnlogin = document.getElementById('btn-ver-vagas');
         btnlogin.addEventListener('click', () => {
