@@ -484,6 +484,20 @@
                 </div-->
             </div>
         </section>
+        <section class="section section-news">
+
+            <div class="section-news-ser">
+                <div class="each-new">
+                    <div class="each-new-header"></div>
+                    <div class="each-new-body">
+                        
+                    </div>
+                    <div class="each-new-footer"></div>
+                </div>
+            </div>
+
+        </section>
+
         <div class="modal hidden" id="modal">
             <div class="modal-set" id="modal-set">
                 <div class="modal-sobre-head">
@@ -668,26 +682,61 @@
             modal.classList.toggle('hidden');
         }
 
+        //Para adicionar e remover estilo quando a imagem é trocada
+        function adicionarOpacidade() {
+            document.getElementById('banner-img-image').classList.add('opaco')
+        }
+        function removerOpacidade() {
+            document.getElementById('banner-img-image').classList.remove('opaco')
+        }
+
         function tracarImagem1() {
             const img = document.getElementById('banner-img-image');
             img.src = "./assets/img/homem.png";
-            
+
+            setTimeout(() => {
+                removerOpacidade();
+            }, 500);
+
+            setTimeout(() => {
+                adicionarOpacidade();
+            }, 4000);
+
             setTimeout(() => {
                 tracarImagem2();
             }, 4500);
-            
+
         }
         function tracarImagem2() {
             const img = document.getElementById('banner-img-image');
             img.src = "./assets/img/homem alegre.png";
+
+            setTimeout(() => {
+                removerOpacidade();
+            }, 500);
+
+            setTimeout(() => {
+                adicionarOpacidade();
+            }, 4000);
+
             setTimeout(() => {
                 tracarImagem3();
             }, 4500);
-            
+
         }
         function tracarImagem3() {
             const img = document.getElementById('banner-img-image');
             img.src = "./assets/img/apertoDeMao.png";
+
+
+            setTimeout(() => {
+                removerOpacidade();
+            }, 500);
+
+            setTimeout(() => {
+                adicionarOpacidade();
+            }, 4000);
+
             setTimeout(() => {
                 tracarImagem4();
             }, 4500);
@@ -696,6 +745,15 @@
         function tracarImagem4() {
             const img = document.getElementById('banner-img-image');
             img.src = "./assets/img/mulher.png";
+
+            setTimeout(() => {
+                removerOpacidade();
+            }, 500);
+
+            setTimeout(() => {
+                adicionarOpacidade();
+            }, 4000);
+
             setTimeout(() => {
                 tracarImagem1();
             }, 4500);

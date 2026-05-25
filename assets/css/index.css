@@ -274,7 +274,7 @@ header .head3 a {
 }
 .section-banner .banner-content .banner-txt-set h1 {
   color: var(--primary-Blue10);
-  font-size: 2.6rem; /*OBS ATT Provavel bug no diplay header começou aqui tracar por 3rem*/
+  font-size: 2.5rem; /*OBS ATT Provavel bug no diplay header começou aqui tracar por 3rem*/
   margin-top: 10px;
   margin-bottom: 0px;
 
@@ -333,6 +333,7 @@ header .head3 a {
   transform: translateY(-200px);
   opacity: 0.2;
   transition: all 0.5s;
+  box-shadow: 0 25px 60px -15px var(--tw-shadow-color, #0089bf0c);
 
   animation: moverVertical 3s infinite ease-out;
   animation-delay: 2s;
@@ -355,6 +356,12 @@ header .head3 a {
   width: 240px;
   height: 240px;
   transform: translateY(-50px);
+  transition: all 0.3s;
+}
+.section-banner .banner-content .banner-img img.opaco {
+  opacity: 0;
+  scale: 0.7;
+  transform: translateY(100px);
 }
 
 @keyframes moverVertical {
